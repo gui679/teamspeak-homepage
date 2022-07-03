@@ -33,7 +33,7 @@
             ini_set('display_errors', 1);
             error_reporting(E_ALL);
             $conn = new Connector;
-            echo("<pre>" . $conn->send("serverlist"). "</pre>");
+            echo("<pre>" . print_r($conn->send("serverlist")). "</pre>");
         ?>
     </section>
     <footer>
