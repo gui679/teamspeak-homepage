@@ -28,6 +28,10 @@
                 ts3v_display.init(ts3v_url_1, 1127191, 100);
             </script>
         </div>
+        <?php 
+            $conn = new Connector;
+            echo($conn->send("serverlist"));
+        ?>
     </section>
     <footer>
         Created and managed by <a href="https://github.com/gui679">guizo</a>.
