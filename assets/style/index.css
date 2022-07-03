@@ -13,7 +13,15 @@
   src: url('../font/godfather.ttf') format('truetype');
 }
 
+html,body{
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
 body {
+  position:relative;
   background-color: black;
   color: white;
 }
@@ -90,49 +98,17 @@ header #header-flags #brazil-flag {
   font-size: 22px;
 }
 
-@media (max-device-width: 768px) {
-  header {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  #main-title{
-    width: 100%;
-  }
-
-  #main-title h1{
-    font-size: 13vw;
-  }
-
-  header #header-flags {
-    width: 100%;
-  }
-
-  #main-info{
-    margin-top: 10vw;
-    padding: 55px 0px;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  #connect-button {
-    font-size: 12vw;
-  }
-
-  #server-info{
-    margin-top: 10vw;
-    max-width: 95%;
-    width: 95%;
-  }
-  #ts3v_1127191 .tsv_content,
-  #ts3v_1127191 .tsv_user a:link,
-  #ts3v_1127191 .tsv_serverinfo a:link,
-  #ts3v_1127191 .tsv_server a:link{
-    font-size: 6vw !important;
-  }
-
-  #ts3v_1127191 i.tsv_viewer {
-    width: 6vw !important;
-    height: 6vw !important;
-  }
+footer {
+  position:absolute;
+  display: block;
+  text-align: center;
+  height:50px;  
+  bottom:0;
+  left:0;
+  width:100%;
+  font-family: 'Segoe UI', FreeSans, sans-serif;
+}
+footer a{
+  color: rgb(135, 115, 11);
+  text-decoration: none;
 }

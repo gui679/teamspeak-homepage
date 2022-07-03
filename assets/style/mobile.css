@@ -1,0 +1,50 @@
+@media (max-device-width: 768px), (max-width: 768px) {
+  header {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #main-title{
+    width: 100%;
+  }
+
+  #main-title h1{
+    font-size: 13vw;
+  }
+
+  header #header-flags {
+    width: 100%;
+  }
+
+  #main-info{
+    margin-top: 10vw;
+    padding: 55px 0px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #connect-button {
+    font-size: 12vw;
+  }
+
+  #server-info{
+    margin-top: 10vw;
+    max-width: 95%;
+    width: 95%;
+  }
+  #ts3v_1127191 .tsv_content,
+  #ts3v_1127191 .tsv_user a:link,
+  #ts3v_1127191 .tsv_serverinfo a:link,
+  #ts3v_1127191 .tsv_server a:link{
+    font-size: 6vw !important;
+  }
+
+  #ts3v_1127191 i.tsv_viewer {
+    width: 6vw !important;
+    height: 6vw !important;
+  }
+
+  footer {
+    font-size: 4vw;
+  }
+}

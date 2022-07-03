@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="assets/style/index.css">
+</head>
 <body>
     <header>
         <div id="main-title">
@@ -26,6 +29,10 @@
             </script>
         </div>
     </section>
+    <footer>
+        Created and managed by <a href="https://github.com/gui679">guizo</a>.
+    </footer>
 </body>
-<link rel="stylesheet" href="assets/style/index.css">
+<link rel="stylesheet" href="assets/style/mobile.css">
+<script src="assets/script/index.js"></script>
 </html>
