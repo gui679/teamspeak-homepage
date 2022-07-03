@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include('connector.php'); ?>
 <html>
 <head>
     <link rel="stylesheet" href="assets/style/index.css">
@@ -29,8 +30,10 @@
             </script>
         </div>
         <?php 
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL);
             $conn = new Connector;
-            echo($conn->send("serverlist"));
+            echo("<pre>" . $conn->send("serverlist"). "</pre>");
         ?>
     </section>
     <footer>

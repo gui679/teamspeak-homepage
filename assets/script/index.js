@@ -6,13 +6,13 @@ const resizeObserver = new ResizeObserver(entries =>
         } else {
             document.querySelector('footer').style = "position:absolute";            
         }
-        document.querySelector("a[href='https://www.tsviewer.com/']").remove();
-        document.querySelector("a[href='https://play.google.com/store/apps/details?id=com.tsviewer.webapp']").remove();
+        if(obj = document.querySelector("a[href='https://www.tsviewer.com/']"))
+            obj.remove();
+        if(obj = document.querySelector("a[href='https://play.google.com/store/apps/details?id=com.tsviewer.webapp']"))
+            obj.remove();
     }
   )
   
   // start observing a DOM node
   resizeObserver.observe(document.body);
   resizeObserver.observe(document.getElementById('ts3viewer_1127191'));
-
-  document.querySelector("a[href='https://www.tsviewer.com/']").remove();
