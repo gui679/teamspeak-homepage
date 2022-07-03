@@ -90,7 +90,7 @@ header #header-flags #brazil-flag {
   font-size: 22px;
 }
 
-@media only screen and (max-width: 768px) {
+@media (max-device-width: 768px) {
   header {
     flex-direction: column;
     width: 100%;
