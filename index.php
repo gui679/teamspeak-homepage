@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link rel="stylesheet" href="assets/style/index.css">
-</head>
-
 <body>
     <header>
         <div id="main-title">
@@ -32,5 +27,5 @@
         </div>
     </section>
 </body>
-
+<link rel="stylesheet" href="assets/style/index.css">
 </html>
