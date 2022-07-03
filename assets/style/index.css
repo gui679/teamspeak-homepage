@@ -64,8 +64,7 @@ header #header-flags #brazil-flag {
 }
 
 #server-info{
-  max-width: 400px;
-  padding-left: 2vw;
+  max-width: 400px;  
 }
 
 #connect-button {
@@ -83,4 +82,41 @@ header #header-flags #brazil-flag {
 #connect-button:hover{
   background-color: rgb(105, 90, 14);
   color: rgb(37, 37, 37);
+}
+
+#server-info {
+  font-size: 22px;
+}
+
+@media only screen and (max-width: 640px) {
+  header {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #main-title{
+    width: 100%;
+  }
+
+  #main-title h1{
+    font-size: 13vw;
+  }
+
+  header #header-flags {
+    width: 100%;
+  }
+
+  #main-info{
+    padding: 55px 0px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #connect-button {
+    font-size: 12vw;
+  }
+
+  #server-info{
+    max-width: 95%;
+  }
 }
