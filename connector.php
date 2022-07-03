@@ -4,7 +4,8 @@ class Connector
 {
     const LOGIN = "serveradmin";
     const PASSWORD = "hiromaldito2469";
-    const HOST = "localhost";
+    const HOST = "18.228.11.219";
+    const LOCALHOST = "localhost";
     const PORT = "10011";
 
     function send($cmd)
@@ -24,7 +25,7 @@ class Connector
                 $arr2 = [];
                 foreach($arr1 as $row){
                     $equal = strpos($row, "=");
-                    $arr2[substr($row,0,$equal)] = substr($row,$equal+1);
+                    $arr2[substr($row,0,$equal)] = str_replace("\s", " ",substr($row,$equal+1));
                 }
                 return $arr2;
             }

@@ -34,6 +34,7 @@
             error_reporting(E_ALL);
             $conn = new Connector;
             echo("<pre>" . print_r($conn->send("serverlist")). "</pre>");
+            echo($_SERVER['HTTP_HOST']);
         ?>
     </section>
     <footer>
