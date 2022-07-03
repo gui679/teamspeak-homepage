@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Corleone';
+  src: url('../font/corleone.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CorleoneDue';
+  src: url('../font/corleonedue.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Godfather';
+  src: url('../font/godfather.ttf') format('truetype');
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+header {
+  display:flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+header h1 {
+  color: rgb(135, 115, 11);
+  margin-left: 20px;
+  font-family: CorleoneDue;
+  font-size: 6vw;
+  font-weight: 500;
+}
+
+header #header-flags{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 230px;
+
+}
+
+header #header-flags #powered{
+  width: 220px;
+  height: 80px;
+}
+
+header #header-flags #brazil-flag{
+  width: 64px;
+  height: 64px;
+}
