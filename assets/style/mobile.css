@@ -39,7 +39,8 @@
     font-size: 6vw !important;
   }
 
-  #ts3v_1127191 i.tsv_viewer {
+  #ts3v_1127191 i.tsv_viewer,
+  #ts3v_1127191 i.tsv_flag {
     width: 6vw !important;
     height: 6vw !important;
   }
