@@ -53,6 +53,7 @@ header #header-flags #brazil-flag {
 
 #main-info{
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-around;
 }
 
@@ -64,7 +65,8 @@ header #header-flags #brazil-flag {
 }
 
 #server-info{
-  max-width: 400px;  
+  max-width: 800px;
+  width: 60%;
 }
 
 #connect-button {
@@ -88,7 +90,7 @@ header #header-flags #brazil-flag {
   font-size: 22px;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 768px) {
   header {
     flex-direction: column;
     width: 100%;
@@ -118,5 +120,6 @@ header #header-flags #brazil-flag {
 
   #server-info{
     max-width: 95%;
+    width: 95%;
   }
 }
