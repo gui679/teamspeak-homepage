@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once "vendor/autoload.php";
 
 use Framework\Helper\Connector;
 
 $conn = new Connector;
 $server = $conn->serverList();
-$uptime = new DateTime("@" . $server->uptime);
-$now = new DateTime('@0');
 ?>
 <html>
 
@@ -43,7 +45,11 @@ $now = new DateTime('@0');
         </div>
     </section>
     <div>
-        <p id="uptime">Estamos a <?= $now->diff($uptime)->format('%a dias, %h horas, %i minutos e %s segundos') ?> sem dar ruim.</p>
+        <p id="uptime">Estamos a <span id="uptime-text"><?= $server->stringUptime() ?></span> sem dar ruim.</p>
+        <script>var uptime = <?= $server->uptime ?></script>
+    </div>
+    <div>
+        <?php echo $server->jsonUptime(); ?>
     </div>
     <footer>
         Created and managed by <a href="https://github.com/gui679">guizo</a>.
@@ -51,5 +57,6 @@ $now = new DateTime('@0');
 </body>
 <link rel="stylesheet" href="assets/style/mobile.css">
 <script src="assets/script/index.js"></script>
+<script src="assets/script/uptime.js"></script>
 
 </html>

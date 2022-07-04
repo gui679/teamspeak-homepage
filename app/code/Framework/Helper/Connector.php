@@ -14,12 +14,13 @@ class Connector
     const LOCALHOST = "localhost";
     const PORT = "10011";
 
-    function send($cmd)
+    function send($cmd, $use = null)
     {
         $return = shell_exec(
             "nc -q1 " . (($_SERVER['HTTP_HOST'] == self::DOMAIN) ? self::LOCALHOST : self::HOST) .
             " " . self::PORT . "<<EOF\n" .
             "login " . self::LOGIN . " " . self::PASSWORD . "\n" .
+            ($use ? "use ".$use."\n" : "") .
             $cmd . "\n" .
             "EOF"
         );
