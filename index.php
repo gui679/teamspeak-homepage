@@ -46,10 +46,7 @@ $server = $conn->serverList();
     </section>
     <div>
         <p id="uptime">Estamos a <span id="uptime-text"><?= $server->stringUptime() ?></span> sem dar ruim.</p>
-        <script>var uptime = <?= $server->uptime ?></script>
-    </div>
-    <div>
-        <?php echo $server->jsonUptime(); ?>
+        <script>var uptime = <?= $server->uptime ?>;</script>
     </div>
     <footer>
         Created and managed by <a href="https://github.com/gui679">guizo</a>.
