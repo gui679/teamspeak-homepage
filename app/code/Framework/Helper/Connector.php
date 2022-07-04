@@ -28,15 +28,16 @@ class Connector
             if ($pos = strpos($return, "error id=0 msg=ok")) {
                 $return = substr($return, $pos);
                 $return = str_replace("error id=0 msg=ok", "", $return);
+                $return = str_replace("\n", "", $return);
                 $arr1 = explode(" ", $return);
                 $arr2 = [];
                 foreach ($arr1 as $row) {
                     $equal = strpos($row, "=");
                     if($equal)
                         $arr2[substr($row, 0, $equal)] = str_replace("\s", " ", substr($row, $equal + 1));
-                    //else{
-                    //    $arr2[$row] = "0";
-                    //}
+                    else{
+                        $arr2[$row] = "0";
+                    }
                 }
                 return $arr2;
             }

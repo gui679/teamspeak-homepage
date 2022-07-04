@@ -98,6 +98,10 @@ header #header-flags #brazil-flag {
   font-size: 22px;
 }
 
+#uptime {
+  text-align: center;
+}
+
 footer {
   position:absolute;
   display: block;

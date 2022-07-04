@@ -2,12 +2,19 @@
 <?php
 require_once "vendor/autoload.php";
 
-use Framework\Helper\Connector; 
+use Framework\Helper\Connector;
+
+$conn = new Connector;
+$server = $conn->serverList();
+$uptime = new DateTime("@" . $server->uptime);
+$now = new DateTime('@0');
 ?>
 <html>
+
 <head>
     <link rel="stylesheet" href="assets/style/index.css">
 </head>
+
 <body>
     <header>
         <div id="main-title">
@@ -21,6 +28,7 @@ use Framework\Helper\Connector;
     </header>
     <section id="main-info">
         <div id="connection">
+            <p>Status: <?= $server->status ?></p>
             <a href="ts3server://18.228.11.219?port=9987" rel="nofollow" id="connect-button" data-tooltip-content="connect to TS3">Conectar</a>
             <p>18.228.11.219:9987</p>
         </div>
@@ -35,13 +43,7 @@ use Framework\Helper\Connector;
         </div>
     </section>
     <div>
-    <?php 
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-            $conn = new Connector;
-            echo("<pre>" . print_r($conn->serverList()). "</pre>");
-        ?>
+        <p id="uptime">Estamos a <?= $now->diff($uptime)->format('%a dias, %h horas, %i minutos e %s segundos') ?> sem dar ruim.</p>
     </div>
     <footer>
         Created and managed by <a href="https://github.com/gui679">guizo</a>.
@@ -49,4 +51,5 @@ use Framework\Helper\Connector;
 </body>
 <link rel="stylesheet" href="assets/style/mobile.css">
 <script src="assets/script/index.js"></script>
+
 </html>
