@@ -6,7 +6,4 @@ namespace Framework\Model;
 
 class AbstractModel
 {
-    public function toString(){
-        return serialize(get_defined_vars());
-    }
 }

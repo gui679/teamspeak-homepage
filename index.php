@@ -53,11 +53,11 @@ $server = new VirtualServer();
         <script>var uptime = <?= $server->uptime ?>;</script>
     </div>
     <div>
-        <?php //$displayer = new ServerDisplayer\Block\Displayer();
-            //$displayer->render(); ?>
+        <?php $displayer = new ServerDisplayer\Block\Displayer();
+            $displayer->render(); ?>
     </div>
     <footer>
-        Created and managed by <a href="https://github.com/gui679">guizo</a>.
+        Criado e gerenciado por <a href="https://github.com/gui679">guizo</a>.
     </footer>
 </body>
 <link rel="stylesheet" href="assets/style/mobile.css">

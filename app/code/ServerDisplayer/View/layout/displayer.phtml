@@ -1,13 +1,19 @@
-<?php 
+<?php
 $server = $class->server;
 ?>
 <div id="server-info">
     <h4 id="server-name"><?= $server->name; ?></h4>
-    <p> Usuários: <?= $server->clientsonline." / ".$server->maxclients; ?></p>
-    <ul>
-    <?php $channelList = $class->getChannelCollection()->getAllItems();
-    foreach($channelList as $channel){
-        echo('<li>'.$channel->name.'</li>');
-        } ?>
+    <p> Usuários: <?= $server->clientsonline . " / " . $server->maxclients; ?></p>
+    <ul style="list-style: none;">
+        <?php foreach ($class->getChannelCollection()->getAllItems() as $channel) : ?>
+            <?php $channel->getAdditionalData(); ?>
+            <li id="channel-<?= $channel->id?>" 
+                class="<?php echo($channel->total_clients < 1 ? "empty" : "")  ?>"
+                style="<?php echo($channel->pid ? "padding-left: 15px" : "") ?>">
+                <?php if($channel->icon_id): ?>
+                    <img src="assets/image/icons/icon_<?= $channel->icon_id?>" style="width: 15px; height: 15px;"/>
+                <?php endif; ?>
+                <?= $channel->name; ?></li>
+        <?php endforeach; ?>
     </ul>
 </div>
