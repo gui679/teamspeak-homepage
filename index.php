@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<?php include('connector.php'); ?>
+<?php
+require_once "vendor/autoload.php";
+
+use Framework\Helper\Connector; 
+?>
 <html>
 <head>
     <link rel="stylesheet" href="assets/style/index.css">
@@ -29,14 +33,16 @@
                 ts3v_display.init(ts3v_url_1, 1127191, 100);
             </script>
         </div>
-        <?php 
-            ini_set('display_errors', 1);
-            error_reporting(E_ALL);
-            $conn = new Connector;
-            echo("<pre>" . print_r($conn->send("serverlist")). "</pre>");
-            echo($_SERVER['HTTP_HOST']);
-        ?>
     </section>
+    <div>
+    <?php 
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+            $conn = new Connector;
+            echo("<pre>" . print_r($conn->serverList()). "</pre>");
+        ?>
+    </div>
     <footer>
         Created and managed by <a href="https://github.com/gui679">guizo</a>.
     </footer>
