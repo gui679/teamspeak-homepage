@@ -6,10 +6,14 @@ error_reporting(E_ALL);
 
 require_once "vendor/autoload.php";
 
-use Framework\Helper\Connector;
+use Framework\Connector;
+use Framework\View;
+
+use Framework\Model\VirtualServer;
 
 $conn = new Connector;
-$server = $conn->serverList();
+$view = new View();
+$server = new VirtualServer();
 ?>
 <html>
 
@@ -47,6 +51,10 @@ $server = $conn->serverList();
     <div>
         <p id="uptime">Estamos a <span id="uptime-text"><?= $server->stringUptime() ?></span> sem dar ruim.</p>
         <script>var uptime = <?= $server->uptime ?>;</script>
+    </div>
+    <div>
+        <?php //$displayer = new ServerDisplayer\Block\Displayer();
+            //$displayer->render(); ?>
     </div>
     <footer>
         Created and managed by <a href="https://github.com/gui679">guizo</a>.

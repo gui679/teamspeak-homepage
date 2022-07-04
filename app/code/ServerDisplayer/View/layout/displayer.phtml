@@ -1,0 +1,13 @@
+<?php 
+$server = $class->server;
+?>
+<div id="server-info">
+    <h4 id="server-name"><?= $server->name; ?></h4>
+    <p> Usuários: <?= $server->clientsonline." / ".$server->maxclients; ?></p>
+    <ul>
+    <?php $channelList = $class->getChannelCollection()->getAllItems();
+    foreach($channelList as $channel){
+        echo('<li>'.$channel->name.'</li>');
+        } ?>
+    </ul>
+</div>
