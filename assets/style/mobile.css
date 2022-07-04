@@ -23,6 +23,10 @@
     width: 100%;
   }
 
+  #connection{
+    font-size: 4vw;
+  }
+
   #connect-button {
     font-size: 12vw;
   }
@@ -43,6 +47,10 @@
   #ts3v_1127191 i.tsv_flag {
     width: 6vw !important;
     height: 6vw !important;
+  }
+
+  #uptime {
+    font-size: 3.5vw;
   }
 
   footer {
