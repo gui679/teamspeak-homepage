@@ -16,6 +16,16 @@
     width: 100%;
   }
 
+  header #header-flags #powered{
+    width: 40%;
+    height: auto;
+  }
+  header #header-flags #brazil-flag{
+    width: 10%;
+    height: auto;
+  }
+  
+
   #main-info{
     margin-top: 10vw;
     padding: 55px 0px;
