@@ -52,7 +52,7 @@ $server = new VirtualServer();
         <p id="uptime">Estamos a <span id="uptime-text"><?= $server->stringUptime() ?></span> sem dar ruim.</p>
         <script>var uptime = <?= $server->uptime ?>;</script>
     </div>
-
+    
     <footer>
         Criado e gerenciado por <a href="https://github.com/gui679">guizo</a>.
     </footer>

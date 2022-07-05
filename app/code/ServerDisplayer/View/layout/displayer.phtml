@@ -6,7 +6,7 @@ $server = $class->server;
     <p> Usuários: <?= $server->clientsonline . " / " . $server->maxclients; ?></p>
     <ul style="list-style: none;">
         <?php foreach ($class->getChannelCollection()->getAllItems() as $channel) : ?>
-            <?php $channel->getAdditionalData(); ?>
+            <?php //$channel->getAdditionalData(); ?>
             <li id="channel-<?= $channel->id?>" 
                 class="<?php echo($channel->total_clients < 1 ? "empty" : "")  ?>"
                 style="<?php echo($channel->pid ? "padding-left: 15px" : "") ?>">
@@ -14,6 +14,9 @@ $server = $class->server;
                     <img src="assets/image/icons/icon_<?= $channel->icon_id?>" style="width: 15px; height: 15px;"/>
                 <?php endif; ?>
                 <?= $channel->name; ?></li>
+        <?php endforeach; ?>
+        <?php foreach ($class->getClientCollection()->getAllItems() as $client) : ?>            
+            <li id="client-<?= $client->id?>"><?= $client->nickname; ?></li>
         <?php endforeach; ?>
     </ul>
 </div>

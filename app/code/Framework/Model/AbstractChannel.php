@@ -61,7 +61,7 @@ class AbstractChannel extends AbstractModel
     }
 
     public function toString(){
-        return print_r($this->toArray());
+        return serialize($this->toArray());
     }
 
     public function toArray(){
@@ -83,6 +83,5 @@ class AbstractChannel extends AbstractModel
             $key = str_replace("channel_", "", $key);
             $this->{$key} = $value;
         }
-
     }
 }

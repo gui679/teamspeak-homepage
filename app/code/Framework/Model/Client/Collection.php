@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Framework\Model\Channel;
+namespace Framework\Model\Client;
 
 use Framework\AbstractCollection;
-use Framework\Model\Channel;
+use Framework\Model\Client;
 use Framework\Connector;
 
 class Collection extends AbstractCollection
@@ -15,10 +15,10 @@ class Collection extends AbstractCollection
     ) {
         if(!$data){
             $conn = new Connector();
-            $data = $conn->send('channellist -topic -icon', 1);
+            $data = $conn->send('clientlist', 1);
         }
         foreach($data as $child){
-            $this->childs[$child['cid']] = new Channel($child);
+            $this->childs[$child['clid']] = new Client($child);
         }
     }
 }
