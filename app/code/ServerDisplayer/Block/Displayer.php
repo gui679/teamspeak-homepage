@@ -14,6 +14,9 @@ class Displayer extends View
     protected $server;
     protected $channelCollection;
     protected $clientCollection;
+    
+    public $channel_printed = [];
+    public $client_printed = [];
 
     public function __construct(){
         $this->server = new VirtualServer();
@@ -30,4 +33,5 @@ class Displayer extends View
             $this->clientCollection = new ClientCollection();
         return $this->clientCollection;
     }
+
 }

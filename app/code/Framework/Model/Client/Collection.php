@@ -15,10 +15,12 @@ class Collection extends AbstractCollection
     ) {
         if(!$data){
             $conn = new Connector();
-            $data = $conn->send('clientlist', 1);
+            $data = $conn->send('clientlist -voice -country', 1);
         }
         foreach($data as $child){
-            $this->childs[$child['clid']] = new Client($child);
+            if($child['client_nickname'] != "serveradmin"){
+                $this->childs[$child['clid']] = new Client($child);
+            }
         }
     }
 }

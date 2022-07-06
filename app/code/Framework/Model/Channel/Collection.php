@@ -9,7 +9,7 @@ use Framework\Model\Channel;
 use Framework\Connector;
 
 class Collection extends AbstractCollection
-{    
+{
     public function __construct(
         array $data = null
     ) {

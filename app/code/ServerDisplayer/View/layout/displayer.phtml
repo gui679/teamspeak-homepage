@@ -1,22 +1,76 @@
 <?php
 $server = $class->server;
+
+function printChannel($channel, $class, $is_child = 0)
+{
+    if (!in_array($channel->id, $class->channel_printed) && (intval($channel->pid) < 1 || $is_child)) {
+        $class->channel_printed[] = $channel->id ?>
+            <li id="channel-<?= $channel->id ?>" class="<?php
+                echo ($channel->total_clients < 1 ? "empty" : "");
+                echo ($is_child ? " level-" . $is_child : "");
+            ?>">
+            <img src="assets/image/icons/icon_<?php echo ($channel->icon_id ? $channel->icon_id : "default.png"); ?>" style="width: 15px; height: 15px;" />
+            <?= $channel->name; ?>
+        </li>
+        <?php 
+        if ($clients = $channel->getClients($class->getClientCollection())){
+            foreach($clients as $client){
+                printClient($client, $class, $is_child);
+            }
+        } 
+        if ($children = $channel->getChildren($class->getChannelCollection())) {
+            $is_child++;
+            foreach ($children as $child) {
+                printChannel($child, $class, $is_child);
+            }
+        }
+    }
+}
+
+function printClient($client, $class, $level)
+{
+    if (!in_array($client->id, $class->client_printed)) {
+        $class->client_printed[] = $client->id ?>
+            <li id="client-<?= $client->id ?>" class="<?php                
+                echo ("level-" . ($level+1));
+            ?>">
+            <?php $icon = "online.png"; 
+            if($client->input_muted){
+                $icon = "mic_muted.png";
+            }
+            if($client->output_muted){
+                $icon = "sound_muted.png";
+            }?>            
+            <img src="assets/image/icons/client/<?= $icon ?>" style="width: 15px; height: 15px;" />            
+            <?= $client->nickname; ?>
+        </li>
+    <?php } 
+
+}
 ?>
 <div id="server-info">
     <h4 id="server-name"><?= $server->name; ?></h4>
     <p> Usuários: <?= $server->clientsonline . " / " . $server->maxclients; ?></p>
     <ul style="list-style: none;">
         <?php foreach ($class->getChannelCollection()->getAllItems() as $channel) : ?>
-            <?php //$channel->getAdditionalData(); ?>
-            <li id="channel-<?= $channel->id?>" 
-                class="<?php echo($channel->total_clients < 1 ? "empty" : "")  ?>"
-                style="<?php echo($channel->pid ? "padding-left: 15px" : "") ?>">
-                <?php if($channel->icon_id): ?>
-                    <img src="assets/image/icons/icon_<?= $channel->icon_id?>" style="width: 15px; height: 15px;"/>
-                <?php endif; ?>
-                <?= $channel->name; ?></li>
+            <?php printChannel($channel, $class); ?>
         <?php endforeach; ?>
-        <?php foreach ($class->getClientCollection()->getAllItems() as $client) : ?>            
-            <li id="client-<?= $client->id?>"><?= $client->nickname; ?></li>
-        <?php endforeach; ?>
+
     </ul>
 </div>
+
+<style>
+    .level-1 {
+        padding-left: 32px;
+    }
+
+    .level-2 {
+        padding-left: 64px;
+    }
+    .level-3 {
+        padding-left: 96px;
+    }
+    .level-4 {
+        padding-left: 128px;
+    }
+</style>
