@@ -13,12 +13,14 @@ class Collection extends AbstractCollection
     public function __construct(
         array $data = null
     ) {
-        if(!$data){
+        if (!$data) {
             $conn = new Connector();
-            $data = $conn->send('channellist -topic -icon', 1);
+            $data = $conn->send('channellist -topic -icon', 1, true);
         }
-        foreach($data as $child){
-            $this->childs[$child['cid']] = new Channel($child);
+        if ($data) {
+            foreach ($data as $child) {
+                $this->childs[$child['cid']] = new Channel($child);
+            }
         }
     }
 }

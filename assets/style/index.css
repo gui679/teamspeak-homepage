@@ -24,6 +24,7 @@ body {
   position:relative;
   background-color: black;
   color: white;
+  font-family: 'Segoe UI', FreeSans, sans-serif;
 }
 
 header {
@@ -72,6 +73,18 @@ header #header-flags #brazil-flag {
   align-items: center;
 }
 
+.status-online{
+  background-color: green;
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+
+.status-offline{
+  background-color: red;
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+
 #server-info{
   max-width: 300px;
   width: 60%;
@@ -98,7 +111,7 @@ header #header-flags #brazil-flag {
   font-size: 22px;
 }
 
-#uptime {
+#downblock {
   text-align: center;
 }
 
@@ -112,7 +125,7 @@ footer {
   width:100%;
   font-family: 'Segoe UI', FreeSans, sans-serif;
 }
-footer a{
+body a{
   color: rgb(135, 115, 11);
   text-decoration: none;
 }

@@ -41,8 +41,16 @@ function printClient($client, $class, $level)
             if($client->output_muted){
                 $icon = "sound_muted.png";
             }?>            
-            <img src="assets/image/icons/client/<?= $icon ?>" style="width: 15px; height: 15px;" />            
+            <img class="user-icon" src="assets/image/icons/client/<?= $icon ?>" style="width: 15px; height: 15px;" />            
             <?= $client->nickname; ?>
+            <span class="user-flags">
+                <?php if($client->servergroups == "6"):?>
+                    <img class="user-icon" src="assets/image/icons/client/admin.png" style="width: 15px; height: 15px;" />
+                <?php endif;?>
+                <?php if($client->country):?>
+                    <img class="country-icon" src="assets/image/icons/country/<?php echo strtolower($client->country); ?>.svg" style="width: 15px; height: 15px;" />
+                <?php endif;?>
+            </span>
         </li>
     <?php } 
 
@@ -72,5 +80,12 @@ function printClient($client, $class, $level)
     }
     .level-4 {
         padding-left: 128px;
+    }
+    .user-icon{
+        filter: invert(1);
+    }
+    .user-flags{
+        position: relative;
+        float: right;
     }
 </style>

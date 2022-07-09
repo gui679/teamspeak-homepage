@@ -9,17 +9,19 @@ use Framework\Model\Client;
 use Framework\Connector;
 
 class Collection extends AbstractCollection
-{    
+{
     public function __construct(
         array $data = null
     ) {
-        if(!$data){
+        if (!$data) {
             $conn = new Connector();
-            $data = $conn->send('clientlist -voice -country', 1);
+            $data = $conn->send('clientlist -voice -country -groups', 1, true);
         }
-        foreach($data as $child){
-            if($child['client_nickname'] != "serveradmin"){
-                $this->childs[$child['clid']] = new Client($child);
+        if (!empty($data)) {            
+            foreach ($data as $child) {
+                if ($child['client_nickname'] != "serveradmin") {
+                    $this->childs[$child['clid']] = new Client($child);
+                }
             }
         }
     }

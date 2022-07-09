@@ -13,7 +13,7 @@ class Connector
     const LOCALHOST = "localhost";
     const PORT = "10011";
 
-    function send($cmd, $use = null)
+    function send($cmd, $use = null, $is_list = false)
     {
         $return = shell_exec(
             "nc -q1 " . (($_SERVER['HTTP_HOST'] == self::DOMAIN) ? self::LOCALHOST : self::HOST) .
@@ -30,7 +30,7 @@ class Connector
                 $return = str_replace("error id=0 msg=ok", "", $return);
                 $return = str_replace("\n", "", $return);
                 $return = trim($return);
-                if (strpos($return, "|")) {
+                if (strpos($return, "|") || $is_list) {
                     $arrList = explode("|", $return);
                     $arr2 = [];
                     foreach($arrList as $itemList){

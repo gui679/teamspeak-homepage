@@ -41,8 +41,11 @@ class AbstractVirtualServer extends AbstractModel
         $this->machine_id = $machine_id;
     }
 
-    public function stringUptime(): string
+    public function stringUptime()
     {
+        if($this->status != "online"){
+            return false;
+        }
         $uptime = new \DateTime("@" . $this->uptime);
         $now = new \DateTime('@0');
         $times = explode(",", $now->diff($uptime)->format('%a,%h,%i,%s'));

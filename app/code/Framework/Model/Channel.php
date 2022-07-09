@@ -33,6 +33,9 @@ class Channel extends AbstractChannel
     }
 
     public function getClients($collection){
+        if(empty($collection->getAllItems())){
+            return false;
+        }
         $clients = [];
         foreach($collection->getAllItems() as $client){
             if($client->cid == $this->id)
