@@ -14,6 +14,7 @@ use Framework\Model\VirtualServer;
 $conn = new Connector;
 $view = new View();
 $server = new VirtualServer();
+$configs = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/config.ini');
 ?>
 <html>
 
@@ -24,7 +25,7 @@ $server = new VirtualServer();
 <body>
     <header>
         <div id="main-title">
-            <h1>Dannazione TS Server</h1>
+            <h1><?= $configs['servername']?>  TS Server</h1>
         </div>
         <div id="header-flags">
             <img src="assets/image/aws.png" id="powered" />
@@ -36,9 +37,9 @@ $server = new VirtualServer();
         <div id="connection">
             <p>Status: <span class="<?php echo $server->status == "online" ? "status-online" : "status-offline"; ?>"><?= $server->status == "online" ? "online" : "offline"; ?></span></p>
             <?php if ($server->status == "online") : ?>
-                <a href="ts3server://18.228.11.219?port=9987" rel="nofollow" id="connect-button" data-tooltip-content="connect to TS3">Conectar</a>
+                <a href="ts3server://<?= $configs['ts_ip']?>?port=<?= $configs['ts_port']?>" rel="nofollow" id="connect-button" data-tooltip-content="connect to TS3">Conectar</a>
             <?php endif; ?>
-            <p>18.228.11.219:9987</p>
+            <p><?= $configs['ts_ip']?>:<?= $configs['ts_port']?></p>
         </div>
         <?php if ($server->status == "online") : ?>
             <div id="server-info">

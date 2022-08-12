@@ -6,19 +6,19 @@ namespace Framework;
 
 class Connector
 {
-    const LOGIN = "serveradmin";
-    const PASSWORD = "hiromaldito2469";
-    const HOST = "18.228.11.219";
-    const DOMAIN = "ec2-18-228-11-219.sa-east-1.compute.amazonaws.com";
-    const LOCALHOST = "localhost";
-    const PORT = "10011";
+    protected $configs = [];
+
+    function __construct()
+    {        
+        $this->configs = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/config.ini');
+    }
 
     function send($cmd, $use = null, $is_list = false)
     {
         $return = shell_exec(
-            "nc -q1 " . (($_SERVER['HTTP_HOST'] == self::DOMAIN) ? self::LOCALHOST : self::HOST) .
-                " " . self::PORT . "<<EOF\n" .
-                "login " . self::LOGIN . " " . self::PASSWORD . "\n" .
+            "nc -q1 " . (($_SERVER['HTTP_HOST'] == $this->configs['ts_domain']) ? $this->configs['localhost'] : $this->configs['ts_ip']) .
+                " " . $this->configs['ts_port'] . "<<EOF\n" .
+                "login " . $this->configs['ts_admin_login'] . " " . $this->configs['ts_admin_password'] . "\n" .
                 ($use ? "use " . $use . "\n" : "") .
                 $cmd . "\n" .
                 "EOF"

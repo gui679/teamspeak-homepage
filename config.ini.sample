@@ -1,0 +1,10 @@
+[ts_server]
+ts_admin_login = "serveradmin";
+ts_admin_password = "password";
+ts_ip = "123.123.123.123";
+ts_domain = "serverpath.com";
+localhost = "localhost";
+ts_port = "10011";
+
+[http_server]
+servername = "Dannazione"
