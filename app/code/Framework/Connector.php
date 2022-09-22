@@ -17,7 +17,7 @@ class Connector
     {
         $return = shell_exec(
             "nc -q1 " . (($_SERVER['HTTP_HOST'] == $this->configs['ts_domain']) ? $this->configs['localhost'] : $this->configs['ts_ip']) .
-                " " . $this->configs['ts_port'] . "<<EOF\n" .
+                " " . $this->configs['ts_server_port'] . "<<EOF\n" .
                 "login " . $this->configs['ts_admin_login'] . " " . $this->configs['ts_admin_password'] . "\n" .
                 ($use ? "use " . $use . "\n" : "") .
                 $cmd . "\n" .
