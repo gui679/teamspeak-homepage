@@ -1,5 +1,5 @@
 nc -q1 localhost 10011 <<EOF
-login serveradmin hiromaldito2469
+login serveradmin password_of_serveradmin
 use 1
 help
 EOF
